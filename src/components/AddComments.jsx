@@ -6,9 +6,20 @@ class AddComment extends Component {
     comment: {
       comment: "",
       rate: 1,
-      elementId: this.props.asin
+      elementId: null
     }
   };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.asin !== this.props.asin) {
+      this.setState({
+        comment: {
+          this.state.comment,
+          elementId: this.props.asin
+        }
+      });
+    }
+  }
 
   sendComment = async (e) => {
     e.preventDefault();
@@ -21,12 +32,13 @@ class AddComment extends Component {
           headers: {
             "Content-type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTA5NzIxNjUsImV4cCI6MTY1MjE4MTc2NX0.phFXs4iFNWIdxfsTecjjwXqdoppBityRqPXeAsuEgjE"
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjAyOTIxNzAwOTM4MjAwMTVkNjlkNGQiLCJpYXQiOjE2NDk5NDYyMjMsImV4cCI6MTY1MTE1NTgyM30.1FJW5BEy887d5Hq_yqmakRkTF4ax0cw_b2JSOJIb9LI"
           }
         }
       );
       if (response.ok) {
-        alert("Comment sent!");
+        // the comment has been sent succesfully!!
+        alert("Comment was sent!");
       } else {
         console.log("error");
         alert("something went wrong");
@@ -77,7 +89,7 @@ class AddComment extends Component {
               <option>5</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="secondary" type="submit">
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
