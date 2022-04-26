@@ -26,8 +26,7 @@ class AddComment extends Component {
         }
       );
       if (response.ok) {
-        // the comment has been sent succesfully!!
-        alert("Comment was sent!");
+        alert("Comment sent!");
       } else {
         console.log("error");
         alert("something went wrong");
@@ -78,7 +77,7 @@ class AddComment extends Component {
               <option>5</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="secondary" type="submit">
             Submit
           </Button>
         </Form>

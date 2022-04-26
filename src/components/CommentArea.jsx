@@ -6,7 +6,7 @@ import Error from "./Error";
 
 class CommentArea extends Component {
   state = {
-    comments: [], // comments will go here
+    comments: [], 
     isLoading: true,
     isError: false
   };

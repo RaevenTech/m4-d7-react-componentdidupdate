@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import SingleBook from './components/SingleBook'
 import BookList from "./components/BookList";
 import fantasyBooks from "./fantasyBooks.json";
+import CommentArea from "./components/CommentArea";
+import { Row, Col } from "react-bootstrap";
 
 function App() {
     return (
@@ -13,7 +15,18 @@ function App() {
                 {/* <WarningSign text="Watch out again!" /> */}
                 {/* <MyBadge text="NEW!!" color="info" /> */}
                 {/* <SingleBook book={fantasyBooks[0]} /> */}
-                <BookList books={fantasyBooks} />
+                <Row>
+                    <Col sm={7}>
+                        {" "}
+                        <BookList books={fantasyBooks} />
+                    </Col>
+                    <Col sm={5}>
+                        {"Reveiws"}
+                        <Col>
+                            <CommentArea />
+                        </Col>
+                    </Col>
+                </Row>
             </header>
         </div>
     );
