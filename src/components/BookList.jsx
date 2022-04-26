@@ -1,5 +1,6 @@
 import React from 'react'
 import SingleBook from './SingleBook'
+import CommentArea from './CommentArea'
 import { Col, Container, Form, Row } from 'react-bootstrap'
 
 class BookList extends React.Component {
@@ -11,6 +12,8 @@ class BookList extends React.Component {
     render() {
         return (
             <Container>
+                <Row>
+                    <Col sm={8}>
                 <Row>
                     <Col>
                         <Form.Group controlId="formBasicEmail">
@@ -33,6 +36,14 @@ class BookList extends React.Component {
                         ))
                     }
                 </Row>
+                </Col>
+                <Col sm={4}>
+                    {
+                    this.state.selected && <CommentArea asin={this.props.book.asin} />
+                    }
+                </Col>
+                </Row>
+                   
             </Container>
         )
     }
